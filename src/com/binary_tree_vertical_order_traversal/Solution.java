@@ -18,6 +18,7 @@ public class Solution {
             if (travel.get(col)==null) {
                 List<Integer> v = new ArrayList<Integer>();
                 v.add(node.val);
+                travel.put(col,v);
             }
             else {
               travel.get(col).add(node.val);
@@ -35,6 +36,12 @@ public class Solution {
                 cols.add(col-1);
             }
         }
+
+        for (int i = max ;i>=min;i--) {
+            if (travel.get(i) == null) continue;
+            result.add(travel.get(i));
+        }
+        return result;
 
     }
 
